@@ -3,7 +3,7 @@
 
 ### An In-House Application Security On-Demand and CAST Solution
 
-Ligthouse is a web based solution which covers all the important recon scans ( active / passive ) for your assets at a single place.
+Ligthouse is an amazing web based interactive UI solution, which covers all the important recon scans ( active / passive ) for your assets at a single place.
 
 ### Features :
 - Subdomain Enumeration
