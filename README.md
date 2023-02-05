@@ -1,4 +1,5 @@
 #                               Lighthouse
+![alt text](https://github.com/flipkart-incubator/light-house/blob/main/frontend/public/ligthouse.png?raw=true)
 ## An In-House On-Demand and Continuous Application Security Testing (CAST) Solution
 
 Ligthouse is a web based solution which helps you run various kind of automated recon scans ( active / passive ) on your assets with a single step.
