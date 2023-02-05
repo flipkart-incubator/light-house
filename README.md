@@ -5,7 +5,7 @@
 
 Ligthouse is a web based solution which covers all the important recon scans ( active / passive ) for your assets at a single place.
 
-#### Features :
+### Features :
 - Subdomain Enumeration
 - Nuclei Active Scanning
 - Port Scans
@@ -35,7 +35,7 @@ Ligthouse is a web based solution which covers all the important recon scans ( a
 - aquatone
 - ffuf
 
-* Above tools must be installed on the system, post successful installation of above tools we can follow light-house setting up steps below
+Above tools must be installed on the system, post successful installation of above tools we can follow light-house setting up steps below
 
 ### Setting Up the Tool :
 
