@@ -1,0 +1,303 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.divide {
+    border-bottom: 1px solid #E0E1DD;
+}
+
+.divide-dark {
+    border-bottom: 1.5px solid #000;
+}
+.anticon svg {
+    display: flex;
+    margin: auto;
+}
+
+.main-content {
+    width: 85vw;
+    height: 100%;
+    float: right;
+    background-color: white;
+    padding: 1rem;
+    overflow: scroll;
+}
+
+.main-content::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background: rgb(84, 84, 84);
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+    background: rgb(56, 51, 51);
+}
+
+.container {
+    width: 100%;
+    height: 93%;
+    display: flex;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.margin-auto {
+    margin: auto;
+}
+
+.ft-wg-600 {
+    font-weight: 600;
+}
+
+.ft-wg-500 {
+    font-weight: 500;
+}
+
+.breadcrum-text {
+    font-size: 1.35rem;
+}
+
+.full-width {
+    width: 100vw;
+}
+
+.text-head0 {
+    font-size: 3.5rem;
+}
+
+.text-head1 {
+    font-size: 2rem;
+}
+
+.text-head2 {
+    font-size: 1.5rem;
+}
+
+.icon-sm {
+    width: 1rem;
+    margin: 0.25rem;
+}
+
+.ant-table-fixed {
+    table-layout: fixed;
+}
+
+.ant-table-tbody>tr>td {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+
+.user-text {
+    margin: 0 0.5rem;
+}
+
+.pad-b {
+    padding-bottom: 1rem !important;
+}
+
+.ant-menu-sub.ant-menu-inline > .ant-menu-item {
+    height: fit-content;
+}
+
+.custom-date-finding {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-date-finding-child {
+    padding: 0.5rem;
+}
+
+.link {
+    color: #8EA9FF;
+    cursor: pointer;
+}
+
+.pad-1 {
+    padding: 1rem;
+}
+
+.pad-x1 {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.mar-x1 {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.pad-y1 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.text-white {
+    color: #FFF;
+}
+
+.text-red1 {
+    color: #C30000;
+}
+
+.text-red2 {
+    color: #FF3333;
+}
+
+.text-red3 {
+    color: #EA6237;
+}
+
+.text-red4 {
+    color: #E19D6C;
+}
+
+.text-shades {
+    color: #E0E1DD;
+}
+
+.bg-shades {
+    background-color: #E0E1DD;
+}
+
+.text-dark {
+    color: #0D1B2A;
+}
+
+.bg-dark {
+    background-color: #0D1B2A;
+}
+
+.text-light {
+    color: #778DA9;
+}
+
+.bg-light {
+    background-color: #778DA9;
+}
+
+.text-primary {
+    color: #1B263B;
+}
+
+.bg-primary {
+    background-color: #1B263B;
+}
+
+.text-secondary {
+    color: #415A77;
+}
+
+.bg-secondary {
+    background-color: #415A77;
+}
+
+.color-128 {
+    color: rgb(128,128,128);
+}
+
+.border-bottom {
+    border-bottom: 0.1px solid #E0E1DD;
+}
+
+.vert-text {
+    padding: 0.25rem 0.5rem;
+    width: fit-content;
+}
+
+.shadow {
+    -webkit-box-shadow: 0 3px 7px #DCDDD9;
+    -moz-box-shadow: 0 3px 7px #DCDDD9;
+    box-shadow: 0 3px 7px #DCDDD9;
+    border: 1px solid #DCDDD9;
+}
+
+@media screen and (max-width:1441px) {
+    .breadcrum-text {
+        font-size: 1rem;
+    }
+
+    .text-head0 {
+        font-size: 3.25rem;
+    }
+
+    .text-head1 {
+        font-size: 1.5rem;
+    }
+
+    .text-head2 {
+        font-size: 1.25rem;
+    }
+
+    .user-text {
+        font-size: 0.9rem;
+    }
+
+    .vert-text {
+        padding: 0.1rem 0.25rem;
+    }
+
+    .main-content {
+        padding: 0.25rem;
+    }
+
+}
+
+@media screen and (max-width:1281px) {
+    .main-content {
+        width: 83vw;
+    }
+}
+
+@media screen and (max-width:1025px) {
+    .main-content {
+        width: 95vw;
+    }
+}
+
+
+@media screen and (max-width:801px) {}

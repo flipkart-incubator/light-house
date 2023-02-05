@@ -1,0 +1,30 @@
+id: nessus-panel
+
+info:
+  name: Nessus Panel Detect
+  author: joanbono,tess
+  severity: info
+  metadata:
+    verified: true
+    shodan-query: title:"Nessus"
+  tags: panel,nessus
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}"
+      - "{{BaseURL}}/server/status"
+
+    matchers-condition: or
+    matchers:
+      - type: word
+        part: header
+        words:
+          - 'NessusWWW'
+
+      - type: word
+        part: body
+        words:
+          - "<title>Nessus</title>"
+          - "window.location = '/unsupported6.html';"
+        condition: and

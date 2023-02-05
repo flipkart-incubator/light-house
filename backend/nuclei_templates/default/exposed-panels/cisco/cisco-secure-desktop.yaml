@@ -1,0 +1,25 @@
+id: cisco-secure-desktop
+
+info:
+  name: Cisco Secure Desktop
+  author: pdteam
+  severity: info
+  tags: cisco,panel
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/CACHE/sdesktop/install/start.htm"
+
+    matchers-condition: and
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "Installation"
+          - "WebLaunch"
+        condition: and
+
+      - type: status
+        status:
+          - 200

@@ -1,0 +1,52 @@
+.sidebar {
+    width: 15vw;
+    height: 100%;
+    float: left;
+    background-color: white;
+    border-right: 1px solid #E0E1DD;
+}
+
+.sidebar-items {
+    width: 100%;
+    background-color: white;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar-item:hover,
+.active-link {
+    background-color: #E0E1DD;
+}
+
+.sidebar-item-text {
+    margin-left: 0.5rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    width: 15vw;
+}
+
+@media screen and (max-width:1281px) {
+    .sidebar, .footer {
+        width: 17vw;
+    }
+}
+
+@media screen and (max-width:1025px) {
+    .sidebar, .footer {
+        width: 5vw;
+    }
+
+    .sidebar-item-text {
+        display: none;
+    }
+}

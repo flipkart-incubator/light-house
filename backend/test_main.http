@@ -1,0 +1,48 @@
+# Test your FastAPI endpoints
+### Test /
+GET http://127.0.0.1:8090/
+
+### Test Subdomain Enumeration
+GET http://127.0.0.1:8080/subdomains/{{site}}
+
+### Test Port Scanner
+GET http://127.0.0.1:8080/ports/{{site}}?enum=True&force=True
+
+### Test SSL Checker
+GET http://127.0.0.1:8080/ssl_check/{{site}}?enum=True
+
+### Test Nuclei Scanner
+GET http://127.0.0.1:8080/nuclei-scan/{{site}}?enum=True
+
+### Test HealthChecker
+GET http://127.0.0.1:8090/healthcheck
+
+### Test Web scanner
+GET http://localhost:8080/web_scan/{{site}}?enum=True
+
+### Test Fuzzer
+GET http://localhost:8080/fuzz/{{site}}?enum=True
+
+### Test Screenshotter
+GET http://localhost:8080/screenshots/{{site}}?enum=True
+
+### Test Port Scan scheduled
+GET http://localhost:8080/tasks/{{site}}/port_scan/600?enum=False
+
+### Test Subdomains scheduled
+GET http://localhost:8080/tasks/{{site}}/subdomain_enumeration/600?enum=False
+
+### Test Fuzzing Scheduled
+GET http://localhost:8080/tasks/{{site}}/web_fuzzing/600?enum=False
+
+### Test Screenshotter Scheduled
+GET http://localhost:8080/tasks/{{site}}/screenshots/600?enum=False
+
+### Test Scan logs Fetcher
+GET http://localhost:8080/scan_logs/{{date}}
+
+### Test Background tasks
+GET http://localhost:8080/background_tasks/
+
+### Test Nuclei template fetcher
+GET http://localhost:8080/nuclei_templates

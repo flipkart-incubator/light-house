@@ -1,0 +1,57 @@
+.nav {
+  width: 100%;
+  height: 7%;
+  display: flex;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #E0E1DD;
+}
+
+.nav-logo {
+  width: 10vw;
+  margin: auto;
+}
+
+.logo {
+  margin: auto;
+  width: 80%;
+}
+
+.divider {
+  border-right: 1px solid #E0E1DD;
+}
+
+.nav-data {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.nav-data {
+  width: 90vw;
+}
+
+.nav-item {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.signout {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  margin-right: 0.25rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width:1281px) {
+
+  .nav-logo {
+    width: 17vw;
+    margin: auto;
+  }
+
+  .nav-data {
+    width: 83vw;
+  }
+}

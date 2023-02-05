@@ -1,0 +1,28 @@
+.error-box {
+    background-color: rgba(237, 28, 36, 0.6);
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.frame-bottom, .frame-top {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:1281px) {
+    .sidebar, .footer {
+        width: 17vw;
+    }
+}
+
+@media screen and (max-width:1025px) {
+    .sidebar, .footer {
+        width: 5vw;
+    }
+
+    .sidebar-item-text {
+        display: none;
+    }
+}
