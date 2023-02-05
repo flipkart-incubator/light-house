@@ -1,7 +1,7 @@
 <p align="center">Light-House</p>
 <p align="center"><img width="200" src="https://github.com/flipkart-incubator/light-house/blob/main/frontend/public/ligthouse.png" alt="logo">
 
-## An In-House On-Demand and Continuous Application Security Testing (CAST) Solution
+### An In-House On-Demand and CAST Solution
 
 Ligthouse is a web based solution which covers all the important recon scans ( active / passive ) for your assets at a single place.
 
@@ -86,4 +86,4 @@ celery -A main.celery beat -S redbeat.RedBeatScheduler
 celery -A main.celery worker
 ```
 
-##### I hope this tool is useful for its users.
+##### Please feel free to provide your valuable feedbacks.
