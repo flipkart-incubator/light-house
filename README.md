@@ -16,7 +16,7 @@ Ligthouse is a web based solution which covers all the important recon scans ( a
 - Screenshot Grabbing
 - Directory Fuzzing
 
-## Requirements :
+### Requirements :
 
 - Python 3.10 +
 - Redis Server
@@ -37,7 +37,7 @@ Ligthouse is a web based solution which covers all the important recon scans ( a
 
 * Above tools must be installed on the system, post successful installation of above tools we can follow light-house setting up steps below
 
-## Setting Up the Tool :
+### Setting Up the Tool :
 
 #### Frontend Setup :
 
@@ -60,7 +60,7 @@ brew install mongodb
 * Setup a virtualenv if you prefer that
 
  
-## Running Lighthouse :
+### Running Lighthouse :
 
 #### Frontend :
 
