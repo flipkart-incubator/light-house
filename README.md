@@ -31,6 +31,7 @@ Ligthouse is an amazing web based interactive UI solution, which covers all the 
 - nuclei
 - ssl-checker
 - naabu
+- nmap
 - httpx
 - aquatone
 - ffuf
