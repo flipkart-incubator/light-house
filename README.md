@@ -8,6 +8,7 @@ Ligthouse is an amazing web based interactive UI solution, which covers all the 
 ### Features :
 - Subdomain Enumeration
 - Nuclei Active Scanning
+- CAST Scans
 - Port Scans
 - Website Techstack Grabber
 - SSL Certificate / Expiry Check
