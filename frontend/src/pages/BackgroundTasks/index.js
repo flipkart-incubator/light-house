@@ -92,10 +92,8 @@ const BackgroundTasks = () => {
             <Menu.Item key="subdomain_enumeration">Subdomain Enumeration</Menu.Item>
             <Menu.Item key="port_scan">Port Scan</Menu.Item>
             <Menu.Item key="tech_stack_scan">Tech Stack Scan</Menu.Item>
-            <Menu.Item key="screenshots">Screenshots</Menu.Item>
             <Menu.Item key="nuclei_scan">Nuclei Scan</Menu.Item>
             <Menu.Item key="ssl_scan">SSL Scan</Menu.Item>
-            <Menu.Item key="web_fuzzing">Web Fuzzing</Menu.Item>
         </Menu>
     );
     const onInputChange = (e) => {
