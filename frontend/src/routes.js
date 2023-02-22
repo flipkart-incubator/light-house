@@ -9,9 +9,9 @@ import { Routes, Route } from "react-router-dom";
 import SubdomainEnumeration from "./pages/SubdomainEnumeration";
 import PortScan from "./pages/PortScan";
 import WebinfoTechStack from "./pages/WebinfoTechStack";
-import Screenshots from "./pages/Screenshots";
+// import Screenshots from "./pages/Screenshots";
 import NucleiScan from "./pages/NucleiScan";
-import Fuzzing from "./pages/Fuzzing";
+// import Fuzzing from "./pages/Fuzzing";
 import SSLResult from "./pages/SSLResult";
 // import Results from "./pages/Results";
 // import Inventory from "./pages/Inventory";
@@ -48,7 +48,7 @@ function Router() {
       <Route exact path="/sslResult" element={<SSLResult />} />
       {/* <Route exact path="/results" element={<Results />} /> */}
       {/* <Route exact path="/inventory" element={<Inventory />} /> */}
-      {/* <Route exact path="/userPreferences" element={<UserPreferences />} /> */}
+      <Route exact path="/userPreferences" element={<UserPreferences />} />
       <Route exact path="/settings" element={<Settings />} />
         <Route exact path="/scanlogs" element={<ScanLogs/>}/>
         <Route exact path="/backgroundtasks" element={<BackgroundTasks/>}/>

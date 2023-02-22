@@ -72,7 +72,7 @@ def amass(domain, rerun=0):
 def enumerate_subdomains(log_id, domain):
     db_name = domain.split('.')[0]
     db = db_utils.client.get_database(str(db_name))
-
+    
     db_utils.update_scan_log_status(log_id, constants.RUNNING_SCAN_LOGS_STATUS)
 
     #amass(domain)
@@ -84,6 +84,7 @@ def enumerate_subdomains(log_id, domain):
         db_utils.update_scan_log_status(log_id, constants.FILE_FAILED_STATUS)
 
     subdomains_collection = db["subdomains"]
+    
 
     domains = {}
     for i, domain in enumerate(final_domains):
@@ -92,6 +93,7 @@ def enumerate_subdomains(log_id, domain):
     final_domain_dict = {"domains": domains}
     try:
         subdomains_collection.insert_one(final_domain_dict)
+        db_utils.all_subdomains.insert_one(final_domain_dict)
         db_utils.update_scan_logs(domains, constants.FINISHED_SCAN_LOGS_STATUS, log_id)
 
     except:

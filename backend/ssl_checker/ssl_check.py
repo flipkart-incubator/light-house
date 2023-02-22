@@ -225,6 +225,8 @@ class SSLChecker:
         json_output = json.loads(output)
 
         ssl_collection.insert_one(json_output)
+        db_utils.all_ssl.insert_one(json_output)
+        
         return json.dumps(context)
 
     def filter_hostname(self, host):

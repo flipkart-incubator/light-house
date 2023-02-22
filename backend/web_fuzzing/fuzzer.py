@@ -56,6 +56,7 @@ def ffuf(root_domain, domain, rerun=0):
                 try:
                     json_result = json.loads(scan_result)
                     fuzz_collection.insert_one(json_result)
+                    db_utils.all_fuzz.insert_one(json_result)
                 except json.decoder.JSONDecodeError:
                     print(scan_result)
 

@@ -60,6 +60,7 @@ def httpx(root_domain, domain_file, rerun=0):
             if scan_result:
                 json_result = json.loads(scan_result)
                 web_collection.insert_one(json_result)
+                db_utils.all_webinfo.insert_one(json_result)
         
                     
         

@@ -6,6 +6,27 @@ FINISHED_SCAN_LOGS_STATUS: str = "complete"
 ON_DEMAND_SCAN_SCHEDULE: str = "on_demand"
 RECCURING_SCHEDULE: str = "scheduled"
 
+
+# all_db = client[str("all_db")]
+# all_nuclei = all_db["all_nuclei"]
+# all_subdomains = all_db["all_subdomains"]
+# all_ports = all_db["all_ports"]
+# all_screenshots = all_db["all_screenshots"]
+# all_webinfo = all_db["all_webinfo"]
+# all_fuzz = all_db["all_fuzz"]
+# all_ssl = all_db["all_ssl"]
+# all_ssl_domains = all_db["all_ssl_domains"]
+# all_count = all_db["all_count"]
+
+ALL_DB_COLLECTION_NAME: str = "all_db"
+ALL_SUBDOMAIN_COLLECTION_NAME: str = "all_subdomains"
+ALL_PORTS_COLLECTION_NAME: str = "all_ports"
+ALL_FUZZ_COLLECTION_NAME: str = "all_fuzz"
+ALL_WEBINFO_COLLECTION_NAME: str= "all_webinfo"
+ALL_SSL_COLLECTION_NAME: str = "all_ssl_domains"
+ALL_NUCLEI_COLLECTION_NAME: str = "all_nuclei"
+
+
 SUBDOMAIN_SCAN_TYPE: str = "subdomain_enumeration"
 SUBDOMAIN_COLLECTION_NAME: str = "subdomains"
 

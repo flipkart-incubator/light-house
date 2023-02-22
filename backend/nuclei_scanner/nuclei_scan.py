@@ -72,5 +72,6 @@ def scan(root_domain, domain, templates):
             if scan_result != '':
                 json_result = json.loads(scan_result)
                 ports_collection.insert_one(json_result)
+                db_utils.all_nuclei.insert_one(json_result)
 
         return scan_result_segmented
