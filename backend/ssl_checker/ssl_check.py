@@ -197,9 +197,7 @@ class SSLChecker:
         """Get the context."""
         context = {}
         start_time = datetime.now()
-
         host, port = self.filter_hostname(host)
-
         try:
             cert = self.get_cert(host, port)
             context[host] = self.get_cert_info(host, cert)
@@ -209,6 +207,14 @@ class SSLChecker:
 
             print('\t{}[-]{} {:<20s} Failed: Misconfigured SSL/TLS\n'.format(Clr.RED, Clr.RST, host))
             self.total_failed += 1
+
+        except Exception as error:
+            print('\t{}[-]{} {:<20s} Failed: {}\n'.format(Clr.RED, Clr.RST, host, error))
+            self.total_failed += 1
+        
+        except KeyboardInterrupt:
+            print('{}Canceling script...{}\n'.format(Clr.YELLOW, Clr.RST))
+            sys.exit(1)
 
         db_name = root_domain.split('.')[0]
 

@@ -110,11 +110,11 @@ const SSLResult = () => {
             />
             <div className="flex">
               <Space>
-                {/* <Switch
+                <Switch
                     checkedChildren="Subdomain Scan"
                     unCheckedChildren="RootDomain Scan"
                     onChange={onChange}
-                    disabled={disabled}/> */}
+                    disabled={disabled}/>
 
                 <Button
                   type="primary"

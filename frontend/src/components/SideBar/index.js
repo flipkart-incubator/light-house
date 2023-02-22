@@ -98,7 +98,7 @@ const paths = {
   "/portScan": "Port Scan",
   "/webinfoTechStack": "Web-info / Tech Stack",
   // "/screenshots": "Screenshots",
-  // "/nucleiScan": "Nuclei Scan",
+  "/nucleiScan": "Nuclei Scan",
   // "/fuzzing": "Fuzzing",
   "/sslResult": "SSL Result",
   "/scanlogs": "Scan Logs",

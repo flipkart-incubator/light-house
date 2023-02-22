@@ -44,11 +44,11 @@ function Router() {
       <Route exact path="/webinfoTechStack" element={<WebinfoTechStack />} />
       {/* <Route exact path="/screenshots" element={<Screenshots />} /> */}
       <Route exact path="/nucleiScan" element={<NucleiScan />} />
-      <Route exact path="/fuzzing" element={<Fuzzing />} />
+      {/* <Route exact path="/fuzzing" element={<Fuzzing />} /> */}
       <Route exact path="/sslResult" element={<SSLResult />} />
       {/* <Route exact path="/results" element={<Results />} /> */}
       {/* <Route exact path="/inventory" element={<Inventory />} /> */}
-      <Route exact path="/userPreferences" element={<UserPreferences />} />
+      {/* <Route exact path="/userPreferences" element={<UserPreferences />} /> */}
       <Route exact path="/settings" element={<Settings />} />
         <Route exact path="/scanlogs" element={<ScanLogs/>}/>
         <Route exact path="/backgroundtasks" element={<BackgroundTasks/>}/>
