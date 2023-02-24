@@ -92,3 +92,16 @@ def fetch_from_db(site_name: str, collection_name: str):
         output[i].pop('_id')
         i += 1
     return output
+
+def fetch_all_from_db(collection_name: str):
+    db_formatted = "all_db"
+    db = client.get_database(str(db_formatted))
+    t = db[collection_name]
+    query = t.find()
+    output = {}
+    i = 0
+    for x in query:
+        output[i] = x
+        output[i].pop('_id')
+        i += 1
+    return output

@@ -10,18 +10,7 @@ import Setting from "../../Assets/setting.svg";
 import {Button, Dropdown, Menu} from "antd";
 import Cookies from "js-cookie";
 
-const paths = {
-  // "/": "Dashboard",
-  // "/domainOverview": "Domain Overview",
-  // "/domains": "Domains",
-  "/subdomains": "Subdomains",
-  // "/assets": "Assets",
-  // "/securityScans": "Security Scans",
-  // "/results": "Results",
-  // "/inventory": "Inventory",
-  "/userPreferences": "User Preferences",
-  "/settings": "Settings",
-};
+
 
 const NavBar = (props) => {
 
@@ -82,10 +71,6 @@ const NavBar = (props) => {
           <img src={ChevronRight} className="icon-sm" alt="breadcrum arrow" />
           <div className="breadcrum-text">{props.route}</div>
         </div>
-        {/* <div className="flex-center">
-            <Button>UserName</Button>
-
-        </div> */}
       </div>
     </div>
   );

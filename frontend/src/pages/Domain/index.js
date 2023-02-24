@@ -1,5 +1,15 @@
 import React, { useState } from "react";
+import manageAllSubdomains from "../../Services/all_subdomains";
 import TextVertical from "../../components/TextVertical";
+import {
+  ScanOutlined,
+  FileDoneOutlined,
+  Loading3QuartersOutlined,
+  DatabaseOutlined,
+  GlobalOutlined,
+} from "@ant-design/icons";
+import "./index.css";
+
 import {
   Checkbox,
   Button,
@@ -14,6 +24,8 @@ import {
 import DotVer from "../../Assets/dotVer.svg";
 import { flipkartDomains } from "../../Data/flipkartDomains";
 
+manageAllSubdomains.getSubdomains()
+
 const Domain = () => {
   const [visibleModal, setVisibleModal] = React.useState(false);
 
@@ -27,78 +39,39 @@ const Domain = () => {
 
   const columns = [
     {
-      title: "Testing Status",
-      dataIndex: "testingStatus",
-      align: "center",
+      title: "S.No.",
+      dataIndex: "id",
+      width: 400,
     },
     {
       title: "Domain",
       dataIndex: "domain",
       width: 400,
-      render: (text) => (
-          <div onClick={showModal} className="pad-1 link">
-            {text}
-          </div>
-      ),
-    },
-    {
-      title: "Registrar",
-      dataIndex: "registrar",
-    },
-    {
-      title: "Expiry",
-      dataIndex: "expiry",
-    },
-    {
-      title: "#Subdomains",
-      dataIndex: "subdomains",
-      align: "center",
-    },
-    {
-      title: "Asset Status",
-      dataIndex: "assetStatus",
-    },
-    {
-      title: "Source",
-      dataIndex: "source",
     },
   ];
 
   const data = [];
+  let each = {}
 
-  for (let i = 0; i < flipkartDomains.length; i++) {
-    let each = {
-      key: i,
-      domain: flipkartDomains[i]["Domain"],
-      testingStatus: `${
-        flipkartDomains[i]["Testing Status"] === "Active" ? "🟢" : "⚫"
-      }`,
-      registrar: flipkartDomains[i]["Registrar"],
-      expiry: flipkartDomains[i]["Expiry"],
-      assetStatus: flipkartDomains[i]["Asset Status"],
-      source: flipkartDomains[i]["Source"],
-      subdomains: flipkartDomains[i]["Subdomains"],
-    };
-    data.push(each);
+  const fd = flipkartDomains[0];
+  var number_of_domains=0
+  var sub_index = 1
+  for(var i = 0; i < Object.keys(fd).length; i++) {
+      var domainObject = fd[i].domains;
+      for(var j = 0; j < Object.keys(domainObject).length; j++) {
+          var domain = domainObject[j];
+          each = {
+            id:sub_index,
+            domain:domain,
+          };
+          sub_index = sub_index + 1
+          number_of_domains = number_of_domains + 1
+          data.push(each);
+          // your code
+      }
   }
 
-  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
-  const onSelectChange = (newSelectedRowKeys) => {
-    console.log("selectedRowKeys changed: ", selectedRowKeys);
-    setSelectedRowKeys(newSelectedRowKeys);
-  };
-
-  const rowSelection = {
-    selectedRowKeys,
-    onChange: onSelectChange,
-  };
-  const hasSelected = selectedRowKeys.length > 0;
-
-  const onSearch = (value) => console.log(value);
-  const { Search } = Input;
-
-  const [visible, setVisible] = React.useState(false);
+ const [visible, setVisible] = React.useState(false);
 
   const showDrawer = () => {
     setVisible(true);
@@ -140,63 +113,6 @@ const Domain = () => {
 
   const rootSubmenuKeys = ["head1", "head2", "head3", "head4"];
 
-  const items = [
-    getItem("BY ASSET STATUS", "head1", <></>, [
-      getItem(<Checkbox onChange={onChange}>Approved</Checkbox>, "1"),
-      getItem(<Checkbox onChange={onChange}>Need Approval</Checkbox>, "2"),
-    ]),
-    getItem("BY EXPIRY", "head2", <></>, [
-      getItem(<Radio onChange={onChange}>Expired</Radio>, "3"),
-      getItem(<Radio onChange={onChange}>Within 30 Days</Radio>, "4"),
-      getItem(<Radio onChange={onChange}>Within 90 Days</Radio>, "5"),
-      getItem(<Radio onChange={onChange}>Within 365 Days</Radio>, "6"),
-    ]),
-    getItem("TOP LEVEL DOMAIN", "head3", <></>, [
-      getItem(<Radio onChange={onChange}>ae</Radio>, "3"),
-      getItem(<Radio onChange={onChange}>ai</Radio>, "4"),
-      getItem(<Radio onChange={onChange}>ap-south-1.elb.cin</Radio>, "5"),
-      getItem(<Radio onChange={onChange}>app</Radio>, "6"),
-      getItem(<Radio onChange={onChange}>asia</Radio>, "7"),
-      getItem(<Radio onChange={onChange}>biz</Radio>, "8"),
-      getItem(<Radio onChange={onChange}>buzz</Radio>, "9"),
-      getItem(<Radio onChange={onChange}>careers</Radio>, "10"),
-      getItem(<Radio onChange={onChange}>cc</Radio>, "11"),
-      getItem(<Radio onChange={onChange}>centrailindia.aksapp.io</Radio>, "12"),
-      getItem(<Radio onChange={onChange}>cloud</Radio>, "13"),
-      getItem(<Radio onChange={onChange}>club</Radio>, "14"),
-      getItem(<Radio onChange={onChange}>co</Radio>, "15"),
-      getItem(<Radio onChange={onChange}>co.in</Radio>, "16"),
-      getItem(<Radio onChange={onChange}>co.za</Radio>, "17"),
-      getItem(<Radio onChange={onChange}>com</Radio>, "18"),
-      getItem(<Radio onChange={onChange}>com.kw</Radio>, "19"),
-    ]),
-    getItem("BY DATE IDENTIFIED", "head4", <></>, [
-      getItem(<Radio onChange={onChange}>All</Radio>, "20"),
-      getItem(<Radio onChange={onChange}>Last 30 Days</Radio>, "21"),
-      getItem(<Radio onChange={onChange}>Last 90 Days</Radio>, "22"),
-      getItem(<Radio onChange={onChange}>Last 365 Days</Radio>, "23"),
-    ]),
-  ];
-
-  const tld = [
-    "ae",
-    "ai",
-    "ap-south-1.elb.cin",
-    "app",
-    "asia",
-    "biz",
-    "buzz",
-    "careers",
-    "cc",
-    "centrailindia.aksapp.io",
-    "cloud",
-    "club",
-    "co",
-    "co.in",
-    "co.za",
-    "com",
-    "com.kw",
-  ];
 
   const menu = (
     <Menu
@@ -247,85 +163,21 @@ const Domain = () => {
     <div className="main-content">
       <div className="pad-1">
         <TextVertical
-          val1={numberWithCommas(flipkartDomains.length)}
+          val1={numberWithCommas(number_of_domains)}
           val2="Domains"
           className1="text-dark ft-wg-500 text-head1"
           className2="text-dark breadcrum-text"
           className="pad-b"
         />
         <div className="divide"></div>
-
-        <div className="pad-y1">
-          {!hasSelected ? (
-            <div className="flex-between">
-              <Search
-                placeholder="Search by Domain"
-                allowClear
-                onSearch={onSearch}
-                style={{ width: "30rem" }}
-                className="pad-x1"
-              />
-              <div className="flex">
-                <Button onClick={showDrawer} type="primary">
-                  FILTERS
-                </Button>
-                <Dropdown overlay={menu} trigger={["click"]}>
-                  <img
-                    src={DotVer}
-                    className="icon-sm pointer mar-x1"
-                    alt="arrow up"
-                  />
-                </Dropdown>
-              </div>
-            </div>
-          ) : (
-            <>
-              <span
-                style={{
-                  marginRight: 18,
-                  fontWeight: 400,
-                }}
-              >
-                {hasSelected ? `${selectedRowKeys.length} items selected` : ""}
-              </span>
-              <span
-                style={{
-                  marginRight: 6,
-                }}
-              >
-                UPDATE:
-              </span>
-
-              <Dropdown overlay={updateMenu} trigger={["click"]}>
-                <Button type="primary" onClick={(e) => e.preventDefault()}>
-                  ASSET STATUS
-                </Button>
-              </Dropdown>
-            </>
-          )}
-        </div>
         <div className="divide"></div>
         <Table
-          rowSelection={rowSelection}
+          // rowSelection={rowSelection}
           columns={columns}
           dataSource={data}
           pagination={{ defaultPageSize: 20 }}
         />
       </div>
-      <Drawer
-        title="Filters"
-        placement="right"
-        onClose={onClose}
-        visible={visible}
-      >
-        <Menu
-          mode="inline"
-          openKeys={openKeys}
-          onOpenChange={onOpenChange}
-          className="width-100"
-          items={items}
-        />
-      </Drawer>
       <Modal visible={visibleModal} onCancel={handleCancel} footer="">
         <div className="pad-1">
           <img

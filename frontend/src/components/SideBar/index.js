@@ -17,28 +17,14 @@ import Code from "../../Assets/code.svg";
 import CubeTransparent from "../../Assets/cubeTransparent.svg";
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { Result } from "antd";
 
 const links = [
-  // {
-  //   url: "/",
-  //   text: "Dashboard",
-  //   icon: Bar,
-  // },
-  // {
-  //   url: "/domainOverview",
-  //   text: "Domain Overview",
-  //   icon: Overview,
-  // },
-  // {
-  //   url: "/domains",
-  //   text: "Domains",
-  //   icon: Domain,
-  // },
-  // {
-  //   url: "/subdomains",
-  //   text: "Subdomains",
-  //   icon: SubDomain,
-  // },
+  {
+    url: "/domains",
+    text: "All Domains",
+    icon: Domain,
+  },
   {
     url: "/subdomainEnumeration",
     text: "Subdomain Enumeration",
@@ -54,21 +40,11 @@ const links = [
     text: "Web-info / Tech Stack",
     icon: Terminal,
   },
-  // {
-  //   url: "/screenshots",
-  //   text: "Screenshots",
-  //   icon: Photograph,
-  // },
   {
     url: "/nucleiScan",
     text: "Nuclei Scan",
     icon: SearchCircle,
   },
-  // {
-  //   url: "/fuzzing",
-  //   text: "Fuzzing",
-  //   icon: Code,
-  // },
   {
     url: "/sslResult",
     text: "SSL Result",
@@ -87,24 +63,13 @@ const links = [
 ];
 
 const paths = {
-  // "/": "Dashboard",
-  // "/findings": "Findings",
-  // "/domainOverview": "Domain Overview",
-  // "/domains": "Domains",
-  // "/subdomains": "Subdomains",
-  // "/assets": "Assets",
-  // "/securityScans": "Security Scans",
+  "/domains": "Domains",
   "/subdomainEnumeration": "Subdomain Enumeration",
   "/portScan": "Port Scan",
   "/webinfoTechStack": "Web-info / Tech Stack",
-  // "/screenshots": "Screenshots",
   "/nucleiScan": "Nuclei Scan",
-  // "/fuzzing": "Fuzzing",
   "/sslResult": "SSL Result",
   "/scanlogs": "Scan Logs",
-  // "/inventory": "Inventory",
-  "/userPreferences": "User Preferences",
-  "/settings": "Settings",
   "/backgroundtasks":"Background Tasks",
 };
 

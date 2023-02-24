@@ -96,18 +96,7 @@ const PortScan = () => {
     if (key == "hostname") {
       setinputType("HostName")
     }
-    // if (key == "cidr") {
-    //   setinputType("IPV4 CIDR")
-    // }
   }
-
-
-  // const menu = (
-  //     <Menu onClick={HandMenuClick}>
-  //       <Menu.Item key="hostname">Hostname</Menu.Item>
-  //       {/* <Menu.Item key="cidr">IPV4 CIDR</Menu.Item> */}
-  //     </Menu>
-  // );
 
   const exportAsJSON = (e) => {
     e.preventDefault();
@@ -126,14 +115,6 @@ const PortScan = () => {
           <div className="flex">
             <div className="pad-x1">
               <div>
-            {/* <Dropdown overlay={menu}>
-            <a onClick={(e) => e.preventDefault()}>
-              <Space>
-                {inputType}
-                <DownOutlined />
-              </Space>
-            </a>
-          </Dropdown> */}
             </div>
             </div>
             <Input

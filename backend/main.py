@@ -29,7 +29,6 @@ from fastapi import File, UploadFile
 
 from nuclei_scanner import nuclei_scan
 from port_scan import port_scanner
-from screenshots import screenshotter
 from ssl_checker.ssl_check import SSLChecker
 from subdomain_enumeration import enumerator
 from utils import db_utils, constants, aquatone_utils, exceptions
@@ -175,6 +174,15 @@ async def enum_subdomains(site: str, force=False):
     return output
 
 
+@app.get("/domains/")
+async def all_subdomains():
+    output = db_utils.fetch_all_from_db(constants.ALL_SUBDOMAIN_COLLECTION_NAME)
+    with open("../frontend/src/Data/flipkartDomains.js","w") as f:
+        f.write(str("export const flipkartDomains = ["))
+        f.write(str(output))
+        f.write("]")
+    f.close
+
 @app.get("/ports/{site:path}", tags=["Scans"])
 async def port_scan(site: str, enum: bool, input_type="hostname", force=False):
     stale = True
@@ -270,26 +278,6 @@ async def nuclei(site: str, enum: bool, enabled_templates: list[str] | None = Qu
     output["stale"] = stale
     return output
 
-
-@app.get("/fuzz/{site}", tags=["Scans"])
-async def fuzz(site: str, enum: bool, force=False):
-    stale = True
-    log_id = None
-    if force == 'false' or force == 'False':
-        force_scan = False
-    else:
-        force_scan = True
-    result = db_utils.check(site, constants.FUZZ_COLLECTION_NAME)
-    if result or force_scan:
-        stale = False
-        #result = fuzzer.fuzz_site("1", site, enum)
-        result = fuzzing_async(site, enum, constants.ON_DEMAND_SCAN_SCHEDULE)
-    output = db_utils.fetch_from_db(site, constants.FUZZ_COLLECTION_NAME)
-    db_utils.update_scan_logs(output, constants.FINISHED_SCAN_LOGS_STATUS, log_id)
-    output["stale"] = stale
-    return output
-
-
 @app.get("/web_scan/{site}", tags=["Scans"])
 async def web_scan(site: str, enum: bool, force=False):
     stale = True
@@ -310,27 +298,6 @@ async def web_scan(site: str, enum: bool, force=False):
     output = db_utils.fetch_from_db(site, constants.WEB_SCAN_COLLECTION_NAME)
     db_utils.update_scan_logs(output, constants.FINISHED_SCAN_LOGS_STATUS, log_id)
     output["stale"] = stale
-    return output
-
-
-@app.get("/screenshots/{site}", tags=["Scans"])
-async def screenshots(site: str, enum: bool, force=False):
-    stale = True
-    log_id = None
-    if force == 'false':
-        force_scan = False
-    else:
-        force_scan = True
-    result = db_utils.check(site, constants.SCREENSHOT_COLLECTION_NAME)
-    if result or force_scan:
-        stale = False
-        log_id = db_utils.create_scan_log(constants.SCREENSHOT_SCAN_TYPE, site, constants.ON_DEMAND_SCAN_SCHEDULE)
-        result = screenshot_scan_async(site, enum, constants.ON_DEMAND_SCAN_SCHEDULE)
-        # screenshotter.screenshot_scan(log_id, enum, site)
-    fetched_from_db = db_utils.fetch_from_db(site, constants.SCREENSHOT_COLLECTION_NAME)
-    output = aquatone_utils.convert_image_paths_to_base64(fetched_from_db)
-    db_utils.update_scan_logs(output, constants.FINISHED_SCAN_LOGS_STATUS, log_id)
-    fetched_from_db["stale"] = stale
     return output
 
 @app.get("/healthcheck", tags=["healthcheck"])
@@ -430,11 +397,6 @@ async def fetch_scan_logs(date: str):
 
     return outputs
 
-
-# # Async tasks that run in the background
-# def subdomains_async(site: str, schedule_type: str):
-#     enumerator.enumerate_subdomains(log_id, site)
-
 @celery.task
 def subdomains_async(site: str, schedule_type: str):
     log_id = db_utils.create_scan_log(constants.SUBDOMAIN_SCAN_TYPE, site, schedule_type)
@@ -460,23 +422,7 @@ def nuclei_async(site: str, enum_sub: bool, schedule_type: str, templates: [str]
 
 
 @celery.task
-def fuzzing_async(site: str, enum_sub: bool, schedule_type: str):
-    log_id = db_utils.create_scan_log(constants.FUZZ_SCAN_TYPE, site, schedule_type)
-    fuzzer.fuzz_site(log_id, site, enum_sub)
-
-
-@celery.task
-def screenshot_scan_async(site: str, enum: bool, schedule_type: str):
-    log_id = db_utils.create_scan_log(constants.SCREENSHOT_SCAN_TYPE, site, schedule_type)
-    screenshotter.screenshot_scan(log_id, enum, site)
-
-
-@celery.task
 def web_scan_async(site: str, enum: bool, schedule_type: str):
     log_id = db_utils.create_scan_log(constants.SCREENSHOT_SCAN_TYPE, site, schedule_type)
     fetch_info.web_scan(log_id, enum, site)
 
-
-# def ssl_checking(site: str, enum_sub: bool):
-#     SSLCheckerObject = SSLChecker()
-#     SSLCheckerObject.scan_ssl("1", site, enum_sub)
